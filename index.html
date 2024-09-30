@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rith....</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+        body {
+            font-family: 'Great vibes' , cursive ;
+            background: linear-gradient(135deg, #8d0219f6, #3d0155c5, #61012eb2);
+            display: flex;
+            justify-content: center;
+            align-items: normal;
+            height: 100vh;
+            margin: auto;
+            overflow: auto;
+            position: relative;
+            overflow-y: auto;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body::before {
+            content: normal;
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 42, 106, 0.767), transparent 70%);
+            transform: scale(1.5);
+            animation: glowing-bg 3s infinite alternate;
+            pointer-events: auto;
+        }
+
+        @keyframes glowing-bg {
+            from {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            to {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+
+        .letter-container {
+            background-color: rgba(240, 238, 241, 0);
+            padding: 50px;
+            height: auto;
+            width: auto;
+
+            box-shadow: 0px 8px 24px rgba(112, 110, 110, 0);
+            border-radius: auto;
+            text-align: center;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 1;
+            overflow-y: auto;
+        }
+
+        .letter-container.hidden {
+            transform: rotateX(90deg);
+            opacity: 0;
+        }
+
+        .greeting-letter {
+            font-family:'great vibes', cursive;
+            font-size: 25px;
+            line-height: 1.8;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .greeting-letter.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        button {
+            background-color: #0000009c;
+            color: rgba(253, 249, 249, 0.678);
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Dancing script', script;
+            font-size: 16px;
+            position: relative;
+            z-index: 2;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 61, 158, 0.616), 0 0 20px rgba(255, 80, 167, 0.438);
+        }
+
+        button:hover {
+            background-color: #fd377993;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 166, 193, 0.8), 0 0 40px rgba(255, 166, 193, 0.6), 0 0 60px rgba(255, 166, 193, 0.4);
+        }
+
+
+        body:active::before {
+            animation: glowing-bg-pulse 0.3s;
+        }
+
+        @keyframes glowing-bg-pulse {
+            0% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0.6;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="letter-container hidden" id="letterContainer">
+        <h2>Hey Rithi...!</h2>
+        <p class="greeting-letter" id="greetingLetter">
+            Hey, it's me, Rithan, once again wishing you the happiest birthday! There are so many things I’ve never had the right occasion to tell you, and even now, I won’t say it all—but I can’t keep everything in anymore. You’re more than just a friend to me. You're the most precious person in my life, right after my mom and dad.
+
+I honestly don’t know how to express what you truly mean to me. You’ve been there through every one of my lows, and I still remember when you said I should be proud to be your boy best friend. You were right—there’s no better title I could ask for, though I sometimes wish for more.
+
+There isn’t a single day that goes by without you crossing my mind. You appear in my thoughts at the most random moments, and even you became a part of my daily routine. You understand me like no one else, except maybe my mom. It’s impossible to just say "thank you" for everything you’ve been to me. I don’t know what the future holds, but being around you makes me feel like I’ve found something worth holding on to.
+
+You’ve taught me so much without ever flaunting it. You’ve been my calm, my peace—and I need that peace to stay with me. Someone who brings that kind of serenity into my life deserves everything, including asking questions, challenging me, and teaching me how to be better. You’re my reason to believe that there’s something divine in this world, because having you by my side feels like a blessing. Even if I’ve been unlucky in many things, being with you makes me feel like I’ve won in the most important way.
+
+So, be strong, okay? No matter what, I’ll be here, by your side. You shine so bright, like a star, and I’ll always be around to watch you shine. Cheers to 20, big girl. I'm hardly waiting to see what the future holds for us.
+
+perpetually I’ll be your side no matter what.so, Bye bye !!
+        </p>
+        <button id="readButton" onclick="revealLetter()">wanna get in</button>
+    </div>
+
+    <script>
+       window.onload = function() {
+            // Reveal the letter container with animation on page load
+            setTimeout(function() {
+                document.getElementById("letterContainer").classList.remove("hidden");
+            }, 500);
+        };
+
+        function revealLetter() {
+            const letter = document.getElementById("greetingLetter");
+            const button = document.getElementById("readButton");
+            
+            letter.classList.add('visible');
+            letter.style.opacity = 1;
+
+            // Hide the "Read the Letter" button after revealing the letter
+            button.style.display = 'none';
+        }
+        
+    </script>
+
+</body>
+</html>
